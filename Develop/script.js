@@ -1,21 +1,16 @@
-// displays the current date in the header, in addition to the timenow for saved items
-var currentDay = moment().format('dddd, MMM Do YYYY');
+var currentDay = moment().format('dddd, MMM Do YYYY'); //Made to display current date in the header.
 var timeNow = moment().hour();
 $("#currentDay").html(currentDay);
 
-// function for save button in conjunction with the var text and time
-$(document).ready(function () {
+$(document).ready(function () { //Function created for save button
     $(".saveBtn").on("click", function () {
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-        // saving items via local storage
-        localStorage.setItem(time, text);
+        localStorage.setItem(time, text); //Allows to save itemes on local storage. 
     })
 
-    // time block function for past, future, and present items
-
-    $(".time-block").each(function () {
+    $(".time-block").each(function () { //Time block function added.
         var blockTime = parseInt($(this).attr("id").split("hour")[1]);
         console.log(blockTime, timeNow);
         if (blockTime < timeNow) {
@@ -35,9 +30,7 @@ $(document).ready(function () {
         }
     })
 
-    // allows user to save their tasks in local storage upon entering
-
-    $("#hour8 .description").val(localStorage.getItem("hour8"));
+    $("#hour8 .description").val(localStorage.getItem("hour8")); //Added to allow the user to save tasks.
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
     $("#hour11 .description").val(localStorage.getItem("hour11"));
