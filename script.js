@@ -1,4 +1,4 @@
-var currentDay = moment().format('dddd, MMM Do YYYY'); //Made to display current date in the header.
+var currentDay = moment().format('dddd, MMM Do YYYY');
 var timeNow = moment().hour();
 $("#currentDay").html(currentDay);
 
@@ -7,7 +7,8 @@ $(document).ready(function () { //Function created for save button
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-        localStorage.setItem(time, text); //Allows to save itemes on local storage. 
+    
+        localStorage.setItem(time, text);
     })
 
     $(".time-block").each(function () { //Time block function added.
